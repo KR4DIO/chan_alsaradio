@@ -1,28 +1,7 @@
-Couple of months ago I’ve been looking for open source software that a radio amateur could use. I came across app_rpt that is an application for Asterisk with many many interesting features. What is Asterisk then? Asterisk is an open source telephony software that knows many telecom protocols, SIP, MEGACO, IAX (Asterisk own VoIP protocol) just to name a few.
-
-In Asterisk one can distinguish applications and channels although from programmer point of view there is no difference, both being shared libraries.
-
-Channels are the ones used to get or to send calls to/from Asterisk although Asterisk does not distinguish between FXO (Foreign eXchange office) and FXS (Foreign eXchange Station). Applications could do whatever they want with data gotten from the channels it connected to.
-
-Looking at the features Asterisk provides one could imagine at least couple of use cases for Asterisk and its usage in ham radio. Basically the Asterisk could be seen as a PBX able to communicate with other exchanges via various physical links and protocols while locally it can be connected to a radio station.
-
-Now speaking about app_rpt application, it is initiated by Jim Dixon WB6NIL and its intention is to supply a full software repeater package with all modern repeater and remote base functionality included. It’s home with full details and options is here:
-
-[http://app-rpt.qrvc.com/](http://app-rpt.qrvc.com)
-
-How app_rpt works: the communication with radio station is through a channel driver that uses specific hardware:
-
-– Quad PCI adapter
-
-or
-
-–  CM108 chip USB soundcard with some GPIO pins for signalling like PTT, COR, CTCSS decoding.
-
-App_rpt does not provide only standalone repeater controller functionality but also is able to be integrated into networks like Echolink and IRLP through corresponding channel drivers (chan_echolink.so and chan_irlp.so)
-
-My situation is that I do not own any of the hardware that app_rpt is able to work with nor able to buy them easily. Therefore I decided to implement a simpler interface for my radio station based on ALSA and use serial port for signalling.
-
-In the previous article I explained just few bits about Asterisk and app_rpt and how I came to the conclusion to build another channel driver for app_rpt.
+Forked from YU3IIO:
+https://yo3iiu.ro/blog/?p=315
+https://yo3iiu.ro/blog/?p=324
+https://yo3iiu.ro/blog/?p=361
 
 The idea behind is that I wanted to make a channel driver that uses a general purpose sound card for media path and serial port for signaling. If the card has a driver for Linux then [ALSA](http://www.alsa-project.org/) (Advanced Linux Sound Architecture) will provide an abstraction of it so that the channel driver will not depend on the specific sound card type.
 
@@ -217,13 +196,11 @@ aradio runkey – seize COR present
 
 _**Sourcecode released as Open Source under GNU GPL license:**_
 
-example of alsaradio.conf: [alsaradio.conf.tar.gz](http://www.yo3iiu.ro/archives/chan_alsaradio/alsaradio.conf.tar.gz)
+example of alsaradio.conf: [alsaradio.conf](alsaradio.conf)
 
-example of rpt.conf: [rpt.conf.tar.gz](http://www.yo3iiu.ro/archives/chan_alsaradio/rpt.conf.tar.gz)
+example of rpt.conf: [rpt.conf](rpt.conf)
 
-chan alsaradio (v01): [chan_alsaradio.c_01.tar.gz](http://www.yo3iiu.ro/archives/chan_alsaradio/chan_alsaradio.c_01.tar.gz)
-
-chan alsaradio (v02): [chan_alsaradio.c_02.tar.gz](http://www.yo3iiu.ro/archives/chan_alsaradio/chan_alsaradio.c_02.tar.gz)
+chan alsaradio (v02): [chan_alsaradio.c](chan_alsaradio.c)
 
 To correctly build the chan_alsaradio driver, the following line needs to be added in channels/Makefile:
 
