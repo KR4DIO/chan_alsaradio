@@ -131,7 +131,7 @@ There are some things you need to tweak in order to make app_rpt and **alsaradio
 
 I’m using FT-857D to build the repeater. The connection between PC and radio station is signaling and audio. For signaling I’m using the DATA connector on the back which is a mini DIN 6 pin:
 
-[![](serial_interface_2-300x225.jpg "serial_interface_2")](serial_interface_2.jpg)  
+[![](serial_interface_2.jpg "serial_interface_2")](serial_interface_2.jpg)  
 
 The PTT is activated low and needs very low current to be activated. I measured about 140uA needed current for activating PTT.
 
@@ -143,7 +143,9 @@ You could see that the DATA connector has DATA IN, DATA OUT 1200 and DATA OUT 96
 
 A good level meter for ALSA is [ameter](http:// "http://laugeo.free.fr/ameter.html"). It is an ALSA plugin that will get the PCM level to from sound card and display it in a graphical environment. Download, build and install it as per given instructions.  The following is an screenshot of ameter GUI:
 
-[![](ameter.jpg "ameter")](ameter.jpg)To adjust input level just use arecord with the following command:
+[![](ameter.jpg "ameter")](ameter.jpg)
+
+To adjust input level just use arecord with the following command:
 
 arecord -D ameter -c 2 -f S16_LE test.waw
 
