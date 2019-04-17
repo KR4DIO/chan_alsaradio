@@ -28,7 +28,7 @@ The idea behind is that I wanted to make a channel driver that uses a general pu
 
 On the signaling side, the serial port is used to send PTT signal and receive COR (or COS) and CTCSS from an external decoder (if needed only). The simplest serial interface to the radio station is presented bellow:
 
-[![](serial_interface_1-271x300.jpg "serial_interface_1")](serial_interface_1.jpg)
+![](serial_interface_1.jpg)
 
 It does not use the right levels for RS232 interface but it will work with the serial ports of modern computers as long as the PTT and COR are not stressed with high data rate (this is unlikely anyway). I will provide later on an interface that will make use of optocouplers for isolation of signals and audio transformers for isolation of media path.
 
@@ -36,10 +36,9 @@ Audio signals (media path) are connected form the audio output of the rig to sou
 
 The new channel driver is called **alsaradio** and corresponding module is named **chan_alsaradio.so**. Like all the other channel drivers it has a configuration file in which one could give various options. Here is a typical **alsaradio.conf** file which should be placed where all asterisk config files are: **/etc/asterisk/**
 
-**alsaradio.conf  
-**
+**alsaradio.conf**
 
-![](serial_interface_1.jpg)[ard0]
+[ard0]
 
 input_device=plughw:0,0
 
@@ -132,8 +131,7 @@ There are some things you need to tweak in order to make app_rpt and **alsaradio
 
 I’m using FT-857D to build the repeater. The connection between PC and radio station is signaling and audio. For signaling I’m using the DATA connector on the back which is a mini DIN 6 pin:
 
-_[![](serial_interface_2-300x225.jpg "serial_interface_2")](serial_interface_2.jpg)  
-_
+[![](serial_interface_2-300x225.jpg "serial_interface_2")](serial_interface_2.jpg)  
 
 The PTT is activated low and needs very low current to be activated. I measured about 140uA needed current for activating PTT.
 
