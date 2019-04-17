@@ -1,7 +1,8 @@
-Forked from YU3IIO:
-https://yo3iiu.ro/blog/?p=315
-https://yo3iiu.ro/blog/?p=324
-https://yo3iiu.ro/blog/?p=361
+**Forked from YU3IIO:**
+
+* https://yo3iiu.ro/blog/?p=315
+* https://yo3iiu.ro/blog/?p=324
+* https://yo3iiu.ro/blog/?p=361
 
 The idea behind is that I wanted to make a channel driver that uses a general purpose sound card for media path and serial port for signaling. If the card has a driver for Linux then [ALSA](http://www.alsa-project.org/) (Advanced Linux Sound Architecture) will provide an abstraction of it so that the channel driver will not depend on the specific sound card type.
 
